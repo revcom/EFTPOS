@@ -11,6 +11,7 @@
 		9A87BF90256EEA36008BE621 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BF8F256EEA36008BE621 /* ContentView.swift */; };
 		9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF91256EEA37008BE621 /* Assets.xcassets */; };
 		9A87BF95256EEA37008BE621 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF94256EEA37008BE621 /* Preview Assets.xcassets */; };
+		9A87BFA1256EEEB5008BE621 /* NFCScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BFA0256EEEB5008BE621 /* NFCScan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,8 @@
 		9A87BF91256EEA37008BE621 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A87BF94256EEA37008BE621 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9A87BF96256EEA37008BE621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EFTPOS.entitlements; sourceTree = "<group>"; };
+		9A87BFA0256EEEB5008BE621 /* NFCScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +55,13 @@
 		9A87BF8C256EEA36008BE621 /* EFTPOS */ = {
 			isa = PBXGroup;
 			children = (
+				9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */,
 				9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */,
 				9A87BF8F256EEA36008BE621 /* ContentView.swift */,
 				9A87BF91256EEA37008BE621 /* Assets.xcassets */,
 				9A87BF96256EEA37008BE621 /* Info.plist */,
 				9A87BF93256EEA37008BE621 /* Preview Content */,
+				9A87BFA0256EEEB5008BE621 /* NFCScan.swift */,
 			);
 			path = EFTPOS;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A87BFA1256EEEB5008BE621 /* NFCScan.swift in Sources */,
 				9A87BF90256EEA36008BE621 /* ContentView.swift in Sources */,
 				9A87BF8E256EEA36008BE621 /* EFTPOSApp.swift in Sources */,
 			);
@@ -267,6 +273,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EFTPOS/EFTPOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"EFTPOS/Preview Content\"";
 				DEVELOPMENT_TEAM = V56AP28S95;
@@ -289,6 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EFTPOS/EFTPOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"EFTPOS/Preview Content\"";
 				DEVELOPMENT_TEAM = V56AP28S95;
