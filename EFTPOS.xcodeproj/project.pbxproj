@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A4770C82570576100EE5886 /* VYNFCKit in Resources */ = {isa = PBXBuildFile; fileRef = 9A4770C72570576100EE5886 /* VYNFCKit */; };
 		9A87BF8E256EEA36008BE621 /* EFTPOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */; };
 		9A87BF90256EEA36008BE621 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BF8F256EEA36008BE621 /* ContentView.swift */; };
 		9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF91256EEA37008BE621 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A4770C72570576100EE5886 /* VYNFCKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = VYNFCKit; sourceTree = "<group>"; };
 		9A87BF8A256EEA36008BE621 /* EFTPOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFTPOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFTPOSApp.swift; sourceTree = "<group>"; };
 		9A87BF8F256EEA36008BE621 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 		9A87BF8C256EEA36008BE621 /* EFTPOS */ = {
 			isa = PBXGroup;
 			children = (
+				9A4770C72570576100EE5886 /* VYNFCKit */,
 				9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */,
 				9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */,
 				9A87BF8F256EEA36008BE621 /* ContentView.swift */,
@@ -132,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A87BF95256EEA37008BE621 /* Preview Assets.xcassets in Resources */,
+				9A4770C82570576100EE5886 /* VYNFCKit in Resources */,
 				9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

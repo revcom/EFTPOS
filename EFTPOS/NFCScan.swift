@@ -8,17 +8,119 @@
 import UIKit
 import CoreNFC
 
-class NFCScan: ObservableObject {
+class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
+    
     @Published var alertMessage = "Alert me!"
     @Published var showAlert = false
+    @Published var isInitialised = false
+    
+    var session: NFCNDEFReaderSession?
+    
+    override init() {
+        super.init()
+        isInitialised = initialise()
+    }
 
-    func nfcAvailable() -> Bool {
+    func initialise() -> Bool {
         guard NFCNDEFReaderSession.readingAvailable else {
             alertMessage = "This device doesn't support tag scanning"
             showAlert = true
             return false
         }
-        return false
+        
+        return true
+    }
+    
+    func scan() -> String {
+        session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
+        session?.alertMessage = "Hold your iPhone near the item to learn more about it."
+        session?.begin()
+
+        return "Scanning..."
+    }
+    
+    // MARK: - NFCNDEFReaderSessionDelegate
+    
+    func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
+        print("Session activated")
+    }
+
+    func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+        // Check the invalidation reason from the returned error.
+        if let readerError = error as? NFCReaderError {
+            // Show an alert when the invalidation reason is not because of a
+            // successful read during a single-tag read session, or because the
+            // user canceled a multiple-tag read session from the UI or
+            // programmatically using the invalidate method call.
+            if (readerError.code != .readerSessionInvalidationErrorFirstNDEFTagRead)
+                && (readerError.code != .readerSessionInvalidationErrorUserCanceled) {
+                print ("Invalidate error \(readerError)")
+            }
+        }
+
+        // To read new tags, a new session instance is required.
+        self.session = nil
+    }
+
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+        print ("Did detect NDEFs")
+        
+//        DispatchQueue.main.async {
+//            // Process detected NFCNDEFMessage objects.
+//        }
+    }
+    
+    func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+        print ("Detected tag(s)")
+        if tags.count > 1 {
+            // Restart polling in 500ms
+            let retryInterval = DispatchTimeInterval.milliseconds(500)
+            session.alertMessage = "More than 1 tag is detected, please remove all tags and try again."
+            DispatchQueue.global().asyncAfter(deadline: .now() + retryInterval, execute: {
+                session.restartPolling()
+            })
+            return
+        }
+        
+        // Connect to the found tag and perform NDEF message reading
+        let tag = tags.first!
+        session.connect(to: tag, completionHandler: { (error: Error?) in
+            if nil != error {
+                session.alertMessage = "Unable to connect to tag."
+                session.invalidate()
+                return
+            }
+            
+            tag.queryNDEFStatus(completionHandler: { (ndefStatus: NFCNDEFStatus, capacity: Int, error: Error?) in
+                if .notSupported == ndefStatus {
+                    session.alertMessage = "Tag is not NDEF compliant"
+                    session.invalidate()
+                    return
+                } else if nil != error {
+                    session.alertMessage = "Unable to query NDEF status of tag"
+                    session.invalidate()
+                    return
+                }
+                
+                tag.readNDEF(completionHandler: { (message: NFCNDEFMessage?, error: Error?) in
+                    var statusMessage: String
+                    if nil != error || nil == message {
+                        statusMessage = "Fail to read NDEF from tag"
+                    } else {
+                        guard let payload = message?.records[0].payload else { print ("No messages"); return }
+                        statusMessage = "Found 1 NDEF message(s) \(payload)"
+                        DispatchQueue.main.async {
+                            // Process detected NFCNDEFMessage objects.
+                            print ("Found 1 NDEF message")
+                        }
+                    }
+                    
+                    session.alertMessage = statusMessage
+                    session.invalidate()
+                })
+            })
+        })
     }
 }
 

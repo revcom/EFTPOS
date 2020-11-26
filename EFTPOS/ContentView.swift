@@ -11,9 +11,10 @@ struct ContentView: View {
     @ObservedObject var scanner = NFCScan()
 
     @State var amount = 0.00
+    @State var name = ""
     
     var body: some View {
-        if scanner.nfcAvailable() {
+        if scanner.isInitialised {
             VStack( alignment: .leading, spacing: 10, content: {
                 HStack {
                     Text("Pay BWAC:")
@@ -21,17 +22,21 @@ struct ContentView: View {
                     TextField("Amount", value: $amount, formatter: NumberFormatter.currency,
                               onEditingChanged: {_ in },
                               onCommit: {
-    //                            NFCScan().scan()
+                                name = scanner.scan()
                               })
                         .keyboardType(.numbersAndPunctuation)
+                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
                         .font(.title)
                         .alert(isPresented: $scanner.showAlert) {
                             Alert(title: Text("Sorry"), message: Text(scanner.alertMessage), dismissButton: .default(Text("OK")))
                         }
+                    if name.count > 0 { Text("Thanks \(name)") }
+                    Spacer()
                 }
             })
+        } else {
+            Text("❌ Scanning not supported on this iPhone")
         }
-        Text("❌ Scanning not supported on this iPhone")
     }
 }
 
