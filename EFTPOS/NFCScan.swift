@@ -13,6 +13,7 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     @Published var alertMessage = "Alert me!"
     @Published var showAlert = false
     @Published var isInitialised = false
+    @Published var name = "Unknown"
     
     var session: NFCNDEFReaderSession?
     
@@ -109,10 +110,12 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                         statusMessage = "Fail to read NDEF from tag"
                     } else {
                         guard let payload = message?.records[0].payload else { print ("No messages"); return }
-                        statusMessage = "Found 1 NDEF message(s) \(payload)"
+                        let payloadText = payload.dropFirst(3)
+                        guard let payloadStr = String(bytes: payloadText, encoding: .utf16) else { print ("No payload"); return }
+                        statusMessage = "Found 1 NDEF message(s) \(payloadStr)"
+                        self.name = payloadStr
                         DispatchQueue.main.async {
                             // Process detected NFCNDEFMessage objects.
-                            print ("Found 1 NDEF message")
                         }
                     }
                     

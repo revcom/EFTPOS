@@ -30,7 +30,7 @@ struct ContentView: View {
                         .alert(isPresented: $scanner.showAlert) {
                             Alert(title: Text("Sorry"), message: Text(scanner.alertMessage), dismissButton: .default(Text("OK")))
                         }
-                    if name.count > 0 { Text("Thanks \(name)") }
+                    if name.count > 0 { Text("Received from:  \(scanner.name)") }
                     Spacer()
                 }
             })
