@@ -14,6 +14,7 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     @Published var showAlert = false
     @Published var isInitialised = false
     @Published var name = ""
+    @Published var amount = ""
     
     var session: NFCNDEFReaderSession?
     
@@ -32,12 +33,10 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
         return true
     }
     
-    func scan() -> String {
+    func scan() {
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
         session?.alertMessage = "Hold your iPhone near the item to learn more about it."
         session?.begin()
-
-        return "Scanning..."
     }
     
     // MARK: - NFCNDEFReaderSessionDelegate
@@ -107,7 +106,7 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                 tag.readNDEF(completionHandler: { (message: NFCNDEFMessage?, error: Error?) in
                     var statusMessage: String
                     if nil != error || nil == message {
-                        statusMessage = "Fail to read NDEF from tag"
+                        statusMessage = "Bad read - TRY AGAIN"
                     } else {
                         guard let payload = message?.records[0].payload else { print ("No messages"); return }
                         let payloadText = payload.dropFirst(3)
@@ -115,6 +114,7 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
                         statusMessage = "APPROVED"
                         DispatchQueue.main.async {
                             self.name = payloadStr
+//                            self.amount = ""
                         }
                     }
                     

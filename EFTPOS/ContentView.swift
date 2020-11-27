@@ -9,50 +9,43 @@ import SwiftUI
 
 struct ContentView: View {
     @ObservedObject var scanner = NFCScan()
-
-    @State var amount = 0.00
-    @State var name = ""
     
     @State private var alertInput = ""
     
     var body: some View {
         if scanner.isInitialised {
-
             VStack( alignment: .leading, spacing: 10, content: {
-//                Button(action: {
-//                    withAnimation {
-//                        self.alert()
-//                    }
-//                }) {
-//                    Text(alertInput)
-//                }
-                HStack( alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 10, content: {
-                    Text("Amount Owing:")
+                HStack( alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
+                    Text("Amount Owing: $")
 
-                    TextField("Amount", value: $amount, formatter: NumberFormatter.currency,
+                    TextField("Type here", text: $scanner.amount,
                               onEditingChanged: {_ in },
                               onCommit: {
-                                name = scanner.scan()
+                                scanner.scan()
                               })
                         .keyboardType(.numbersAndPunctuation)
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 50)
+                        .frame(width: 150, height: 50)
                         .font(.title)
+                        .background(Color.yellow)
                         .alert(isPresented: $scanner.showAlert) {
                             Alert(title: Text("Sorry"), message: Text(scanner.alertMessage), dismissButton: .default(Text("OK")))
                         }
                     Spacer()
-                }).padding()
-                if name.count > 0 {
+                })
+                .padding()
+                if scanner.name.count > 0 {
                     HStack {
                         Text("Received from: ")
                         Text(scanner.name).font(.title)
                     }
                 }
-                Spacer()
+                
             })
+            .border(Color.blue, width: 2).padding(5)
         } else {
             Text("❌ Scanning not supported on this iPhone")
         }
+        Spacer()
     }
     
     private func alert() {
