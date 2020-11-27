@@ -12,6 +12,7 @@
 		9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF91256EEA37008BE621 /* Assets.xcassets */; };
 		9A87BF95256EEA37008BE621 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF94256EEA37008BE621 /* Preview Assets.xcassets */; };
 		9A87BFA1256EEEB5008BE621 /* NFCScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BFA0256EEEB5008BE621 /* NFCScan.swift */; };
+		9AB5E020257196C300F479CA /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5E01F257196C300F479CA /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		9A87BF96256EEA37008BE621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EFTPOS.entitlements; sourceTree = "<group>"; };
 		9A87BFA0256EEEB5008BE621 /* NFCScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScan.swift; sourceTree = "<group>"; };
+		9AB5E01F257196C300F479CA /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				9A87BF96256EEA37008BE621 /* Info.plist */,
 				9A87BF93256EEA37008BE621 /* Preview Content */,
 				9A87BFA0256EEEB5008BE621 /* NFCScan.swift */,
+				9AB5E01F257196C300F479CA /* CustomTextField.swift */,
 			);
 			path = EFTPOS;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB5E020257196C300F479CA /* CustomTextField.swift in Sources */,
 				9A87BFA1256EEEB5008BE621 /* NFCScan.swift in Sources */,
 				9A87BF90256EEA36008BE621 /* ContentView.swift in Sources */,
 				9A87BF8E256EEA36008BE621 /* EFTPOSApp.swift in Sources */,
