@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A4770C82570576100EE5886 /* VYNFCKit in Resources */ = {isa = PBXBuildFile; fileRef = 9A4770C72570576100EE5886 /* VYNFCKit */; };
+		46F3B7E5B6EC0E9147077948 /* libPods-EFTPOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95424D3514A2391046CA8D2D /* libPods-EFTPOS.a */; };
 		9A87BF8E256EEA36008BE621 /* EFTPOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */; };
 		9A87BF90256EEA36008BE621 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A87BF8F256EEA36008BE621 /* ContentView.swift */; };
 		9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A87BF91256EEA37008BE621 /* Assets.xcassets */; };
@@ -16,7 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9A4770C72570576100EE5886 /* VYNFCKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = VYNFCKit; sourceTree = "<group>"; };
+		6036C9DD6E9B8267FA1A4D35 /* Pods-EFTPOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EFTPOS.release.xcconfig"; path = "Target Support Files/Pods-EFTPOS/Pods-EFTPOS.release.xcconfig"; sourceTree = "<group>"; };
+		95424D3514A2391046CA8D2D /* libPods-EFTPOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EFTPOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A87BF8A256EEA36008BE621 /* EFTPOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EFTPOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EFTPOSApp.swift; sourceTree = "<group>"; };
 		9A87BF8F256EEA36008BE621 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,6 +26,7 @@
 		9A87BF96256EEA37008BE621 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EFTPOS.entitlements; sourceTree = "<group>"; };
 		9A87BFA0256EEEB5008BE621 /* NFCScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCScan.swift; sourceTree = "<group>"; };
+		C06797217E754575E1AF089D /* Pods-EFTPOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EFTPOS.debug.xcconfig"; path = "Target Support Files/Pods-EFTPOS/Pods-EFTPOS.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,17 +34,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F3B7E5B6EC0E9147077948 /* libPods-EFTPOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2EBA273E15DF75E5F999111E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				95424D3514A2391046CA8D2D /* libPods-EFTPOS.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9A87BF81256EEA36008BE621 = {
 			isa = PBXGroup;
 			children = (
 				9A87BF8C256EEA36008BE621 /* EFTPOS */,
 				9A87BF8B256EEA36008BE621 /* Products */,
+				F8FE0E4D95B58429401134B2 /* Pods */,
+				2EBA273E15DF75E5F999111E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,7 +70,6 @@
 		9A87BF8C256EEA36008BE621 /* EFTPOS */ = {
 			isa = PBXGroup;
 			children = (
-				9A4770C72570576100EE5886 /* VYNFCKit */,
 				9A87BF9D256EEA9D008BE621 /* EFTPOS.entitlements */,
 				9A87BF8D256EEA36008BE621 /* EFTPOSApp.swift */,
 				9A87BF8F256EEA36008BE621 /* ContentView.swift */,
@@ -77,6 +89,16 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		F8FE0E4D95B58429401134B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C06797217E754575E1AF089D /* Pods-EFTPOS.debug.xcconfig */,
+				6036C9DD6E9B8267FA1A4D35 /* Pods-EFTPOS.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -84,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A87BF99256EEA37008BE621 /* Build configuration list for PBXNativeTarget "EFTPOS" */;
 			buildPhases = (
+				4379B1EA8B43C2CB00BBF6CC /* [CP] Check Pods Manifest.lock */,
 				9A87BF86256EEA36008BE621 /* Sources */,
 				9A87BF87256EEA36008BE621 /* Frameworks */,
 				9A87BF88256EEA36008BE621 /* Resources */,
@@ -135,12 +158,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A87BF95256EEA37008BE621 /* Preview Assets.xcassets in Resources */,
-				9A4770C82570576100EE5886 /* VYNFCKit in Resources */,
 				9A87BF92256EEA37008BE621 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4379B1EA8B43C2CB00BBF6CC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EFTPOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A87BF86256EEA36008BE621 /* Sources */ = {
@@ -274,6 +321,7 @@
 		};
 		9A87BF9A256EEA37008BE621 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C06797217E754575E1AF089D /* Pods-EFTPOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -297,6 +345,7 @@
 		};
 		9A87BF9B256EEA37008BE621 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6036C9DD6E9B8267FA1A4D35 /* Pods-EFTPOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
