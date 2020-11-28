@@ -13,10 +13,12 @@ struct ContentView: View {
     @State private var alertInput = ""
     
     var body: some View {
-        if scanner.isInitialised {
+        if scanner.isInitialised ||
+            (ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != nil) {
             VStack( alignment: .leading, spacing: 10, content: {
                 HStack( alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 0, content: {
-                    Text("Amount Owing: $")
+                    Text("Amount to pay: ")
+                    Text("$").font(.title)
 
                     TextField("Type here", text: $scanner.amount,
                               onEditingChanged: {_ in },
@@ -98,13 +100,13 @@ struct ContentView: View {
 
 }
 
-extension NumberFormatter {
-    static var currency: NumberFormatter {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter
-    }
-}
+//extension NumberFormatter {
+//    static var currency: NumberFormatter {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .currency
+//        return formatter
+//    }
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

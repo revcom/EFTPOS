@@ -35,7 +35,7 @@ class NFCScan: NSObject, ObservableObject, NFCNDEFReaderSessionDelegate {
     
     func scan() {
         session = NFCNDEFReaderSession(delegate: self, queue: nil, invalidateAfterFirstRead: true)
-        session?.alertMessage = "Hold your iPhone near the item to learn more about it."
+        session?.alertMessage = "Swipe your BWAC card over top of phone. Genuine Credit Cards ignored"
         session?.begin()
     }
     
